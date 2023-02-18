@@ -9,6 +9,12 @@ int lava_fd = -1;
 void *thread_one_proc(void *_){
     printf("[+] Thread one running...\n");
     for(;;){
+        new_crucible(
+            lava_fd,
+            CRUCIBLE_ID,
+            0xff,
+            0
+        );
         add_pebble(
             lava_fd,
             CRUCIBLE_ID,
@@ -23,6 +29,10 @@ void *thread_one_proc(void *_){
             lava_fd,
             CRUCIBLE_ID,
             0);
+        incinerate(
+            lava_fd,
+            CRUCIBLE_ID
+        );
     }
     return NULL;
 }
@@ -30,6 +40,12 @@ void *thread_one_proc(void *_){
 void *thread_two_proc(void *_){
     printf("[+] Thread two running...\n");
     for(;;){
+        new_crucible(
+            lava_fd,
+            CRUCIBLE_ID,
+            0xff,
+            0
+        );
         add_pebble(
             lava_fd,
             CRUCIBLE_ID,
@@ -44,6 +60,10 @@ void *thread_two_proc(void *_){
             lava_fd,
             CRUCIBLE_ID,
             0);
+        incinerate(
+            lava_fd,
+            CRUCIBLE_ID
+        );
     }
     return NULL;
 }
@@ -60,7 +80,7 @@ int main(int argc, char *argv[]){
     //    return -1;
     //}
 
-    ret = new_crucible(
+    new_crucible(
         lava_fd,
         CRUCIBLE_ID,
         0xff,

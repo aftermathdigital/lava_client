@@ -6,6 +6,8 @@
 #include <sys/types.h>
 #include <stdint.h>
 
+#define printf(...) {}
+
 int get_handle() {
     int lava_fd = -1;
     printf("[+] Opening handle to lava module\n");
