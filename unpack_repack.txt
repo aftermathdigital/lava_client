@@ -1,0 +1,5 @@
+#unpack
+#zcat initramfs.cpio.gz | cpio -idmv
+
+#pack
+#find . | cpio -o -R root:root -H newc | gzip -9 > new_initrd.cpio.gz
