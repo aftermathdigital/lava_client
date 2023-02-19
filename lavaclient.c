@@ -15,20 +15,6 @@ void *thread_one_proc(void *_){
             0xff,
             0
         );
-        add_pebble(
-            lava_fd,
-            CRUCIBLE_ID,
-            0,
-            1,
-            1);
-        assess_value(
-            CRUCIBLE_ID,
-            0
-        );
-        remove_pebble(
-            lava_fd,
-            CRUCIBLE_ID,
-            0);
         incinerate(
             lava_fd,
             CRUCIBLE_ID
@@ -46,20 +32,6 @@ void *thread_two_proc(void *_){
             0xff,
             0
         );
-        add_pebble(
-            lava_fd,
-            CRUCIBLE_ID,
-            0,
-            1,
-            1);
-        assess_value(
-            CRUCIBLE_ID,
-            0
-        );
-        remove_pebble(
-            lava_fd,
-            CRUCIBLE_ID,
-            0);
         incinerate(
             lava_fd,
             CRUCIBLE_ID
@@ -75,10 +47,10 @@ int main(int argc, char *argv[]){
 
     lava_fd = get_handle();
 
-    //if(lava_fd < 0){
-    //    printf("[!] Invalid lava_fd handle!\n");
-    //    return -1;
-    //}
+    if(lava_fd < 0){
+       printf("[!] Invalid lava_fd handle!\n");
+       return -1;
+    }
 
     new_crucible(
         lava_fd,
